@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-11-18 14:24:32 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 2016-11-18 16:19:53 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.project.model.User" table="USER">
-        <id name="id" type="java.util.UUID">
+        <id name="id" type="int" access="field">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="name" type="java.lang.String">
             <column name="NAME" />

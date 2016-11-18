@@ -12,7 +12,6 @@ public class Hibernate4Util{
 	private static Session session;
 
 	static {
-		// 创建Configuration,该对象用于读取hibernate.cfg.xml，并完成初始化
 		Configuration config = new Configuration().configure();
 		StandardServiceRegistryBuilder ssrb = new StandardServiceRegistryBuilder()
 				.applySettings(config.getProperties());
@@ -21,7 +20,7 @@ public class Hibernate4Util{
 	}
 
 	/**
-	 * 获取SessionFactory
+	 * 锟斤拷取SessionFactory
 	 * 
 	 * @return
 	 */

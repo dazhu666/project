@@ -19,5 +19,6 @@
         <!-- 后缀 -->
         <property name="suffix" value=".jsp" />
     </bean>
+    <import resource="redis-context.xml"/>
 
 </beans>

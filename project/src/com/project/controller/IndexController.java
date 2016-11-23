@@ -15,4 +15,11 @@ public class IndexController {
 		modelAndView.setViewName("index");
 		return modelAndView;
 	}
+	@RequestMapping("/login")
+	public ModelAndView login(){
+		ModelAndView modelAndView=new ModelAndView();
+		System.out.println("qqq");
+		modelAndView.setViewName("login");
+		return modelAndView;
+	}
 }

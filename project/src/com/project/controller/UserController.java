@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
 	
 	@RequestMapping("/register")
-	public @ResponseBody String register(){
-		Map<String, String> map=new HashMap<>();
-		map.put("a", "1");
-		map.put("b", "2");
+	public @ResponseBody Map register(){
+		Map<String, Object> map=new HashMap<>();
+		Map<String,String> m1=new HashMap<>();
+		m1.put("2", "2");
+		Map<String,String> m2=new HashMap<>();
+		m2.put("2", "2");
+		map.put("a", m1);
+		map.put("b", m2);
 	
-		return "aa";
+		return map;
 	}
 
 }

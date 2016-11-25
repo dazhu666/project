@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.project.dao.UserDao;
+
 
 
 @RequestMapping("/user")
@@ -15,15 +17,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
 	
 	@RequestMapping("/register")
-	public @ResponseBody Map register(){
-		Map<String, Object> map=new HashMap<>();
-		Map<String,String> m1=new HashMap<>();
-		m1.put("2", "2");
-		Map<String,String> m2=new HashMap<>();
-		m2.put("2", "2");
-		map.put("a", m1);
-		map.put("b", m2);
+	public @ResponseBody Map register(String login,String password,String mobile){
+		
+	UserDao dao=new UserDao();
+	dao.saveUser(login, mobile, login, password);
 	
+	Map map=new HashMap<>();
+	map.put("message", "注册成功！");
 		return map;
 	}
 

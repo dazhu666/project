@@ -81,16 +81,16 @@
                 <form id="registerform" action="#">
                     <p>Enter information required to register:</p>
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control" type="text" placeholder="Enter Username" />
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control" id="r_name" type="text" placeholder="Enter Username" />
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" type="password" placeholder="Choose Password" />
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" id="r_password" type="password" placeholder="Choose Password" />
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" type="password" placeholder="Confirm password" />
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" id="r_password2" type="password" placeholder="Confirm password" />
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span><input class="form-control" type="text" placeholder="Enter E-mail address" />
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span><input class="form-control" id="r_mobile" type="text" placeholder="Enter E-mail address" />
                     </div>
                     <div class="form-actions clearfix">
                         <div class="pull-left">
@@ -99,7 +99,7 @@
                         <div class="pull-right">
                             <a href="#recoverform" class="grey flip-link to-recover">Lost password?</a>
                         </div>
-                        <input type="submit" class="btn btn-block btn-success" value="Register" />
+                        <input type="button" class="btn btn-block btn-success" value="Register" onclick="reg()"/>
                     </div>
                 </form>
             </div>
@@ -108,5 +108,25 @@
         <script src="<%=request.getContextPath() %>/js/jquery-2.0.3.min.js"></script>  
         <script src="<%=request.getContextPath() %>/js/jquery-ui.custom.min.js"></script>
         <script src="<%=request.getContextPath() %>/js/unicorn.login.js"></script> 
+        <script type="text/javascript">
+        function reg(){
+        	if($("#r_name").val()=="" || $("#r_password").val()=="" || $("#r_password2").val()=="" || $("#r_mobile").val()==""){
+        		return;
+        	}else{
+        		$.ajax({
+            		url:"<%=request.getContextPath()%>/user/register",
+            		type:"post",
+            		dataType:"json",
+            		data:$("#registerForm").serialize(),
+            		success:function(d){
+            			alert(d.message);
+            		},
+            		error:function(){
+            			
+            		}
+            	});
+        	}
+        }
+        </script>
     </body>
 </html>

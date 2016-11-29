@@ -16,10 +16,6 @@ font:14px/1.3 Arial,sans-serif;
 </head>
 
 <body>
-<div class="panel panel-default" style="width: 300px;height: 400px;background: white;float: left;margin:0 auto;">
-<div class="panel-body">
-</div>
 
-</div>
 </body>
 </html>

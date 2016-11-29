@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-        <title>Unicorn Admin</title>
+        <title>admin登录</title>
 		<meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="<%=request.getContextPath() %>/css/bootstrap.min.css" />
@@ -111,9 +111,15 @@
         <script type="text/javascript">
         function reg(){
         	if($("#r_name").val()=="" || $("#r_password").val()=="" || $("#r_password2").val()=="" || $("#r_mobile").val()==""){
+        		highlight_error($("#r_name"));
+        		highlight_error($("#r_password"));
+        		highlight_error($("#r_password2"));
+        		highlight_error($("#r_mobile"));
+        		login_register.effect('shake');
         		return;
         	}else{
-        		$.ajax({
+        	
+        		<%-- $.ajax({
             		url:"<%=request.getContextPath()%>/user/register",
             		type:"post",
             		dataType:"json",
@@ -124,7 +130,7 @@
             		error:function(){
             			
             		}
-            	});
+            	}); --%>
         	}
         }
         </script>

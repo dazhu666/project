@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-18 16:19:53 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.project.model.Menu" table="MENU">
+        <id name="id" type="long" access="field">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="title" />
+        </property>
+        <property name="code" type="java.lang.String">
+            <column name="code" />
+        </property>
+        <property name="parentNode" type="java.lang.String">
+            <column name="parentNode" />
+        </property>
+        <property name="link" type="java.lang.String">
+            <column name="link" />
+        </property>
+        <property name="haveChild" type="java.lang.Boolean">
+            <column name="haveChild" />
+        </property>
+        <property name="dateCreated">
+            <column name="dateCreated" />
+        </property>
+        <property name="lastUpdated" >
+            <column name="lastUpdated" />
+        </property>
+        <property name="rank" type="int">
+            <column name="rank" />
+        </property>
+    </class>
+</hibernate-mapping>

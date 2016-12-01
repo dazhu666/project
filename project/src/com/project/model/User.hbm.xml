@@ -4,7 +4,7 @@
 <!-- Generated 2016-11-18 16:19:53 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.project.model.User" table="USER">
-        <id name="id" type="int" access="field">
+        <id name="id" type="long" access="field">
             <column name="ID" />
             <generator class="identity" />
         </id>

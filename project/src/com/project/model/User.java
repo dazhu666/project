@@ -5,12 +5,19 @@ package com.project.model;
 import javax.persistence.Entity;
 @Entity
 public class User {
-	private int id;
+	private Long id;
 	private String name;
 	private String mobile;
 	private String login;
 	private String password;
 	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

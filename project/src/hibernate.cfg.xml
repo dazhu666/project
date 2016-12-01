@@ -12,5 +12,6 @@
         <property name="show_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
 		<mapping resource="com/project/model/User.hbm.xml"/>
+		<mapping resource="com/project/model/Menu.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

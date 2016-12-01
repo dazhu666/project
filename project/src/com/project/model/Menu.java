@@ -37,10 +37,7 @@ public class Menu {
 		this.lastUpdated = lastUpdated;
 	}
 
-	public void setHaveChild(boolean haveChild) {
-		this.haveChild = haveChild;
-	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -73,13 +70,7 @@ public class Menu {
 		this.parentNode = parentNode;
 	}
 
-	public Boolean getHaveChild() {
-		return haveChild;
-	}
-
-	public void setHaveChild(Boolean haveChild) {
-		this.haveChild = haveChild;
-	}
+	
 
 	public String getLink() {
 		return link;
@@ -87,6 +78,14 @@ public class Menu {
 
 	public void setLink(String link) {
 		this.link = link;
+	}
+
+	public boolean isHaveChild() {
+		return haveChild;
+	}
+
+	public void setHaveChild(boolean haveChild) {
+		this.haveChild = haveChild;
 	}
 
 }

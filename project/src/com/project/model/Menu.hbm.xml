@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2016-11-18 16:19:53 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="com.project.model.Menu" table="MENU">
+    <class name="com.project.model.Menu" table="menu" dynamic-insert="true" dynamic-update="true">
         <id name="id" type="long" access="field">
             <column name="ID" />
             <generator class="identity" />
@@ -23,11 +23,11 @@
         <property name="haveChild" type="java.lang.Boolean">
             <column name="haveChild" />
         </property>
-        <property name="dateCreated">
-            <column name="dateCreated" />
+        <property name="dateCreated" type="java.util.Date" generated="insert">
+            <column name="dateCreated" sql-type="timestamp" default="CURRENT_TIMESTAMP"/>
         </property>
-        <property name="lastUpdated" >
-            <column name="lastUpdated" />
+        <property name="lastUpdated" type="java.util.Date" generated="always">
+            <column name="lastUpdated" sql-type="timestamp" default="CURRENT_TIMESTAMP"/>
         </property>
         <property name="rank" type="int">
             <column name="rank" />

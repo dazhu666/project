@@ -44,6 +44,9 @@ Ext.onReady(function(){
 	        { header: '创建时间', dataIndex: 'dateCreated' },
 	        { header: '最后更新时间', dataIndex: 'lastUpdated' },
 	    ],
+	    tbar:[
+	          {xtype: 'button', text: 'Button 1',iconCls: "saveIcon"}
+	          ],
 	   
 	    renderTo: "body"
 	});

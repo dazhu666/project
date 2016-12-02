@@ -1,8 +1,14 @@
 package com.project.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.project.service.MenuService;
 
 @RequestMapping("/index")
 @Controller
@@ -26,4 +32,20 @@ public class IndexController {
 		modelAndView.setViewName("home");
 		return modelAndView;
 	}
+	@RequestMapping("/menu")
+	@ResponseBody
+	public Map<String,Object> menu(){
+		MenuService service=new MenuService();
+		Map<String,Object> rs=new HashMap<>();
+		rs.put("data", service.getMenu());
+		
+		return rs;
+	}
+	
+	@RequestMapping("/menus")
+	public ModelAndView menus(){
+		ModelAndView modelAndView=new ModelAndView();
+		modelAndView.setViewName("menu");
+		return modelAndView;
+	} 
 }

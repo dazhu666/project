@@ -6,9 +6,7 @@ import org.hibernate.Transaction;
 
 import com.project.model.User;
 import com.project.utils.Hibernate4Util;
-import com.project.utils.RedisUtil;
 
-import redis.clients.jedis.Jedis;
 
 public class UserDao {
 	public static void main(String[] args) {

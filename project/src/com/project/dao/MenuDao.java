@@ -11,12 +11,12 @@ import com.project.utils.Hibernate4Util;
 public class MenuDao {
 	public static void main(String[] args) {
 		Menu menu=new Menu();
-		menu.setCode("userConfig");
+		menu.setCode("adminConfig");
 		menu.setHaveChild(true);
-		menu.setTitle("用户信息");
-		menu.setRank(2);
+		menu.setTitle("用户管理");
+		menu.setRank(1);
 		menu.setLink("");
-		menu.setParentNode("adminConfig");
+		menu.setParentNode("");
 		MenuDao dao=new MenuDao();
 		System.out.println(dao.addMenu(menu));
 		

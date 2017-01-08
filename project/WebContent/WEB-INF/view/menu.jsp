@@ -45,11 +45,86 @@ Ext.onReady(function(){
 	        { header: '最后更新时间', dataIndex: 'lastUpdated' },
 	    ],
 	    tbar:[
-	          {xtype: 'button', text: 'Button 1',iconCls: "saveIcon"}
+	          {
+	        	  xtype: 'button', text: 'Button 1',iconCls: "saveIcon",handler:function(){menuAdd()}
+	          }
 	          ],
 	   
 	    renderTo: "body"
 	});
+	function menuAdd(){
+		 var menuForm=Ext.create("Ext.form.Panel",{
+			
+			    bodyPadding: 5,
+			    width: 350,
+
+			    // 将会通过 AJAX 请求提交到此URL
+			    url: 'save-form.php',
+
+			    // 表单域 Fields 将被竖直排列, 占满整个宽度
+			    layout: 'anchor',
+			    defaults: {
+			        anchor: '100%'
+			    },
+
+			    // The fields
+			    defaultType: 'textfield',
+			    items: [{
+			        fieldLabel: '菜单名称',
+			        name: 'title',
+			        allowBlank: false
+			    },{
+			        fieldLabel: '菜单code',
+			        name: 'code',
+			        allowBlank: false
+			    },{
+			    	xtype:"combo",
+			    	fieldLabel:"菜单层级",
+					store:Ext.create('Ext.data.Store',{
+						fields:["text","value"],
+						data:[
+						      {text:"一级菜单",value:"1"},
+						      {text:"二级菜单",value:"2"}
+						      ],
+					}),
+					valueField:"value",
+					displayField:"text",
+			    }],
+
+			    // 重置 和 保存 按钮.
+			    buttons: [{
+			        text: '重置',
+			        handler: function() {
+			            this.up('form').getForm().reset();
+			        }
+			    }, {
+			        text: '保存',
+			        formBind: true, //only enabled once the form is valid
+			        disabled: true,
+			        handler: function() {
+			            var form = this.up('form').getForm();
+			            if (form.isValid()) {
+			                form.submit({
+			                    success: function(form, action) {
+			                       Ext.Msg.alert('保存成功', action.result.msg);
+			                    },
+			                    failure: function(form, action) {
+			                        Ext.Msg.alert('操作失败', action.result.msg);
+			                    }
+			                });
+			            }
+			        }
+			    }],
+		}); 
+		var menuWin=Ext.create('Ext.window.Window',{
+			title:"添加菜单",
+			width:400,
+			height:450,
+			layout: 'fit',
+			items:[menuForm]
+		});
+		menuWin.show();
+	}
 });
 
 </script>
